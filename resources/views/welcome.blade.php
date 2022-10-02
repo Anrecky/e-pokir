@@ -678,6 +678,10 @@
                 <p class="text-blue-400 font-bold pb-8 lg:pb-6 text-center md:text-left fade-in">Download aplikasinya
                     berikut:</p>
                 <div class="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
+                    <a href="{{ asset('storage/app-release.apk') }}" download>
+                        <img src="{{ asset('logo-pukat.png') }}" width="100" height="100"> Pukat App
+                    </a>
+
                     {{-- <img src="App Store.svg" class="h-12 pr-4 bounce-top-icons">
                     <img src="Play Store.svg" class="h-12 bounce-top-icons"> --}}
 
