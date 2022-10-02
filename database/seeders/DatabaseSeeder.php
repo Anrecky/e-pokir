@@ -20,10 +20,12 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            RegionSeeder::class
+            AreaOfElectionSeeder::class,
+            RegionSeeder::class,
+            FractionSeeder::class,
+            UserSeeder::class,
         ]);
 
-        \App\Models\User::factory(2345)->create();
         // \App\Models\Client::factory(1111)->create();
         // \App\Models\Proposal::factory(5750)->create();
     }

@@ -25,7 +25,6 @@ return new class extends Migration
             $table->char('unit', 20);
             $table->boolean('is_draft')->default(0);
             $table->foreignId('client_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -17,14 +17,14 @@ class RegionSeeder extends Seeder
     public function run()
     {
         $districts = [
-            ["id" => 1, 'name' => "Bakam"],
-            ["id" => 2, 'name' => "Belinyu"],
-            ["id" => 3, 'name' => "Mendo Barat"],
-            ["id" => 4, 'name' => "Merawang"],
-            ["id" => 5, 'name' => "Pemali"],
-            ["id" => 6, 'name' => "Puding Besar"],
-            ["id" => 7, 'name' => "Riau Silip"],
-            ["id" => 8, 'name' => "Sungailiat"]
+            ["id" => 1, 'name' => "Bakam", "area_of_election_id" => 4234],
+            ["id" => 2, 'name' => "Belinyu", "area_of_election_id" => 3234],
+            ["id" => 3, 'name' => "Mendo Barat", "area_of_election_id" => 2234],
+            ["id" => 4, 'name' => "Merawang", "area_of_election_id" => 2234],
+            ["id" => 5, 'name' => "Pemali", "area_of_election_id" => 4234],
+            ["id" => 6, 'name' => "Puding Besar", "area_of_election_id" => 4234],
+            ["id" => 7, 'name' => "Riau Silip", "area_of_election_id" => 3234],
+            ["id" => 8, 'name' => "Sungailiat", "area_of_election_id" => 1234]
         ];
         District::insert($districts);
 

@@ -31,6 +31,7 @@ class ClientController extends Controller
             'name' => 'required|string|max:90',
             'street_name' => 'required',
             'phone_name' => 'nullable',
+            'security_answer' => 'required|string',
             'sub_district_name' => 'string|required',
         ]);
 
@@ -41,6 +42,7 @@ class ClientController extends Controller
         $client->name = $validatedData['name'];
         $client->street_name = $validatedData['street_name'];
         $client->phone_name = $validatedData['phone_name'];
+        $client->security_answer = $validatedData['security_answer'];
         $client->subDistrict()->associate($subDistrict);
         $client->save();
 

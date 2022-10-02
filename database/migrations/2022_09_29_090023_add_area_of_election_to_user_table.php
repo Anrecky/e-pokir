@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('sub_district_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('area_of_election_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('users_sub_district_id_foreign');
+            $table->dropForeign('users_area_of_election_id_foreign');
         });
     }
 };

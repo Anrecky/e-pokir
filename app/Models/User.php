@@ -42,23 +42,28 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function subDistrict()
-    {
-        return $this->belongsTo(SubDistrict::class);
-    }
-    public function district()
-    {
-        return $this->subDistrict->district;
-    }
     public function proposals()
     {
-        return $this->hasMany(Proposal::class);
+        return $this->belongsToMany(Proposal::class);
     }
-    public function scopeWhereDistrict($q, $name)
+
+    public function areaOfElection()
     {
-        return $q->with(['subDistrict.district'])->whereHas('subDistrict', function ($query) use ($name) {
-            return $query->whereHas('district', function ($qd) use ($name) {
-                return $qd->where('name', 'like', "%$name%");
+        return $this->belongsTo(AreaOfElection::class);
+    }
+    public function fraction()
+    {
+        return $this->belongsTo(Fraction::class);
+    }
+    public function scopeIsNotAdmin($query)
+    {
+        return $query->where('is_admin', 0);
+    }
+    public function scopeDistrictID($query, $id)
+    {
+        return $query->whereHas('areaOfElection', function ($query) use ($id) {
+            $query->whereHas('districts', function ($q) use ($id) {
+                $q->where('id', $id);
             });
         });
     }

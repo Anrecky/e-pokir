@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('clients', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 90);
-            $table->char('nik', '20')->unique();
-            $table->string('security_answer');
-            $table->string('phone_name')->nullable();
-            $table->string('street_name');
-            $table->timestamps();
+        Schema::table('districts', function (Blueprint $table) {
+            $table->foreignId('area_of_election_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -31,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clients');
+        Schema::table('districts', function (Blueprint $table) {
+            $table->dropForeign('districts_area_of_election_id_foreign');
+        });
     }
 };

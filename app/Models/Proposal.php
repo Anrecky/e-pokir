@@ -15,9 +15,9 @@ class Proposal extends Model
     {
         return $this->belongsTo(Client::class);
     }
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
     }
     public function scopeDraft($q, $isDraft = 1)
     {
@@ -25,7 +25,6 @@ class Proposal extends Model
     }
     protected function serializeDate(DateTimeInterface $dates)
     {
-        //return Carbon::createFromFormat('Y-m-d H:i:s', $dates)->diffForHumans();
         return Carbon::createFromFormat('Y-m-d H:i:s', $dates)->format('d-m-Y');
     }
 }
