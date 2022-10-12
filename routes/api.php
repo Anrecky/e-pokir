@@ -31,7 +31,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get('client/proposals/{clientID}', function ($clientID) {
 
-        $proposals = Proposal::whereHas("client", function ($query) use ($clientID) {
+        $proposals = Proposal::with('users')->whereHas("client", function ($query) use ($clientID) {
             $query->where('id', $clientID);
         })->latest()->get();
         return response()->json($proposals, 200);

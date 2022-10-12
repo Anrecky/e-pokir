@@ -25,6 +25,6 @@ class Proposal extends Model
     }
     protected function serializeDate(DateTimeInterface $dates)
     {
-        return Carbon::createFromFormat('Y-m-d H:i:s', $dates)->format('d-m-Y');
+        return Carbon::createFromFormat('Y-m-d H:i:s', $dates)->format('d-m-Y H:i:s');
     }
 }
